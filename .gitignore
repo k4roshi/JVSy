@@ -20,6 +20,9 @@
 *.out
 *.app
 
+# Release
+Release/*
+
 #################
 ## Eclipse
 #################
