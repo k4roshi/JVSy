@@ -10,6 +10,7 @@ The hardware requires an USB female port, an RS-485 interface and a Teensy 2.0. 
 
 ###Connections
 TODO: Draw schematics
+
 SN65176B:
 - Pin 1: Teensy D2
 - Pin 2: Teensy F6
