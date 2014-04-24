@@ -11,20 +11,20 @@ The hardware requires an USB female port, an RS-485 interface and a Teensy 2.0. 
 ###Connections
 TODO: Draw schematics
 SN65176B:
-Pin 1: Teensy D2
-Pin 2: Teensy F6
-Pin 3: Teensy F6
-Pin 4: Teensy D3
-Pin 5: Teensy GND
-Pin 6: USB Data+
-Pin 7: USB Data-
-Pin 8: Teensy VCC
+- Pin 1: Teensy D2
+- Pin 2: Teensy F6
+- Pin 3: Teensy F6
+- Pin 4: Teensy D3
+- Pin 5: Teensy GND
+- Pin 6: USB Data+
+- Pin 7: USB Data-
+- Pin 8: Teensy VCC
 
 USB:
-RED (5v): Teensy B4
-WHITE (Data -): SN65176B 7
-GREEN (Data +): SN65176B 6
-BLACK (GND): Teensy GND
+- RED (5v): Teensy B4
+- WHITE (Data -): SN65176B 7
+- GREEN (Data +): SN65176B 6
+- BLACK (GND): Teensy GND
 
 
 ##Known Limitations
@@ -40,7 +40,7 @@ Initialization sometimes fails and the device needs to be disconnected and recon
 - gun controls
 
 ##Thanks
-@roysmeding for the wonderful reverse engineering done for Open JVS (https://github.com/TheOnlyJoey/openjvs) and the helpful attitude
+@roysmeding for the wonderful reverse engineering done for Open JVS (https://github.com/TheOnlyJoey/openjvs) and the helpful attitude.
 
 ##License
 The license is GPLv3 for all non commercial purposes. 
