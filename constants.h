@@ -43,6 +43,8 @@
 #define CMD_READ_LIGHTGUN	0x25
 #define CMD_READ_GPI		0x26
 
+#define CMD_DECREASE_COIN	0x30
+
 // MACROS
 
 #endif /* CONSTANTS_H_ */

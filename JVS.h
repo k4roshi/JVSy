@@ -20,6 +20,7 @@ public:
 	int* cmd(char destination, char data[], int size);
 
 private:
+	int coins1;
 	HardwareSerial& _Uart;
 	void write_packet(char destination, char data[],int size);
 	void assign(int attempt);

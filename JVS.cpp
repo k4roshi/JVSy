@@ -12,7 +12,7 @@
 JVS::JVS(HardwareSerial& serial) :
     _Uart(serial) // Need to initialize references before body
 {
-
+	coins1 = 0;
 }
 
 void JVS::reset(){
@@ -60,19 +60,45 @@ void JVS::switches(int board){
 	while (!_Uart.available()){} // wait for length
 	int length = _Uart.read();
 	int counter = 0;
+	//Serial.print("swthc: E0 0 ");
+	//Serial.print(length, HEX);
 	while (counter < length){
 		while (!_Uart.available()){}
 		incomingByte = _Uart.read();
+		//Serial.print(" ");
+		//Serial.print(incomingByte, HEX);
+
+		int x = 512;
+		int y = 512;
+		int z = 512;
+		int zA = 512;
+		int coin1 = 0;
+
 		switch (counter)
 		{
 		case 3:
 			// p1 b1
 			Joystick.button(1,bitRead(incomingByte, 0));
 			Joystick.button(2,bitRead(incomingByte, 1));
-			Joystick.button(3,bitRead(incomingByte, 2));
-			Joystick.button(4,bitRead(incomingByte, 3));
-			Joystick.button(5,bitRead(incomingByte, 4));
-			Joystick.button(6,bitRead(incomingByte, 5));
+			// right
+			//Joystick.button(3,bitRead(incomingByte, 2));
+			if bitRead(incomingByte, 2)
+				x += 511;
+			if bitRead(incomingByte, 3)
+				x -= 512;
+			Joystick.X(x);
+			if bitRead(incomingByte, 4)
+				y += 511;
+			if bitRead(incomingByte, 5)
+				y -= 512;
+			Joystick.Y(y);
+
+			// left
+			//Joystick.button(4,bitRead(incomingByte, 3));
+			// down
+			//Joystick.button(5,bitRead(incomingByte, 4));
+			// up
+			//Joystick.button(6,bitRead(incomingByte, 5));
 			Joystick.button(7,bitRead(incomingByte, 6));
 			Joystick.button(8,bitRead(incomingByte, 7));
 			break;
@@ -90,10 +116,16 @@ void JVS::switches(int board){
 			// p2 b1
 			Joystick.button(17,bitRead(incomingByte, 0));
 			Joystick.button(18,bitRead(incomingByte, 1));
-			Joystick.button(19,bitRead(incomingByte, 2));
-			Joystick.button(20,bitRead(incomingByte, 3));
-			Joystick.button(21,bitRead(incomingByte, 4));
-			Joystick.button(22,bitRead(incomingByte, 5));
+			if bitRead(incomingByte, 2)
+				zA += 511;
+			if bitRead(incomingByte, 3)
+				zA -= 512;
+			Joystick.Zrotate(zA);
+			if bitRead(incomingByte, 4)
+				z += 511;
+			if bitRead(incomingByte, 5)
+				z -= 512;
+			Joystick.Z(z);
 			Joystick.button(23,bitRead(incomingByte, 6));
 			Joystick.button(24,bitRead(incomingByte, 7));
 			break;
@@ -107,15 +139,32 @@ void JVS::switches(int board){
 			Joystick.button(30,bitRead(incomingByte, 7));
 			break;
 		case 8:
-			// coins?
+			// coins 1 status
 			break;
 		case 9:
+			// coins1
+			if (incomingByte > coins1){
+				// added coin
+				coin1 = 1;
+				coins1 = incomingByte;
+			}
+			Joystick.button(4, coin1);
+			break;
+		case 10:
+			// coins2 status
+			break;
+		case 11:
 			// coins2
 			break;
 		}
 		counter++;
 		Joystick.send_now();
 	}
+//	if (coins1 > 0){
+//		char str1[ ] = {CMD_DECREASE_COIN};
+//		this->cmd(board, str1, 1);
+//	}
+	//Serial.println();
 	delay(SWCH_DELAY);
 }
 

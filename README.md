@@ -3,7 +3,7 @@ Open source JVS to PC interface using a Teensy
 
 ##Description
 JVSy is an implementation of a JVS I/O host using a teensy 2.0 and an RS-485 to serial interface. The signals read from the other nodes are then converted to a standard HID Joystick.
-It's currently a work in progress and tested only with digital inputs on a Naomi Universal cabinet. 
+It's currently a work in progress and tested only with digital inputs on a Naomi Universal cabinet.
 
 ##Hardware
 The hardware requires an USB female port, an RS-485 interface and a Teensy 2.0. It has been tested only with an SN65176B and a teensy 2.0, but should also work with a MAX 485. Teensy 2.0++ and Teensy 3.x can be supported in the future.
@@ -29,13 +29,11 @@ USB:
 
 
 ##Known Limitations
-The joystick device currently reports only button presses. Directions are mapped to buttons. 
 Initialization sometimes fails and the device needs to be disconnected and reconnected to try again.
 
 ##TODO
 - better initialization
-- directions emulation
-- shift modes 
+- shift modes
 - analog controls
 - multi nodes
 - gun controls
@@ -44,5 +42,5 @@ Initialization sometimes fails and the device needs to be disconnected and recon
 @roysmeding for the wonderful reverse engineering done for Open JVS (https://github.com/TheOnlyJoey/openjvs) and the helpful attitude.
 
 ##License
-The license is GPLv3 for all non commercial purposes. 
+The license is GPLv3 for all non commercial purposes.
 Contact me directly if you want to use it commercially.
