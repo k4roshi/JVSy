@@ -36,13 +36,12 @@ USB:
 When built, connect the usb cable that comes from your sega i/o board to the usb port you just soldered, while you connect the teensy to your pc with the standard usb port. If flashed correctly it will be recognized as a joystick hid device.
 
 ##Buttons setup
-Controls for both player one and to report as a single HID device.
+Controls for both player one and two and report as a single HID device.
 
-Joystick 1 is mapped to X and Y axes
-Joystick 2 is mapped to Z and Za axes
-Buttons are mapped to corresponding joystick button
-
-P1 and P2 start are mapped to keyboard '1' and '2'
+- Joystick 1 is mapped to X and Y axes.
+- Joystick 2 is mapped to Z and Za axes
+- Buttons are mapped to the corresponding joystick button
+- P1 and P2 start are mapped to keyboard '1' and '2'
 
 P1 start acts as shift button, when pressed simultaneously these keys are pressed instead of the default buttons:
 
@@ -65,6 +64,7 @@ Doesn't work with analog controls or lightguns, as I don't have any of those to 
 
 ##Thanks
 invzim, creator of JVS-PAC, for the inspiration.
+
 @roysmeding for the wonderful reverse engineering done for Open JVS (https://github.com/TheOnlyJoey/openjvs) and the helpful attitude.
 
 ##License
