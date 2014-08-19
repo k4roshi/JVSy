@@ -27,14 +27,30 @@ USB:
 - GREEN (Data +): SN65176B 6
 - BLACK (GND): Teensy GND
 
+##Buttons setup
+Controls for both player one and to report as a single HID device.
+
+Joystick 1 is mapped to X and Y axes
+Joystick 2 is mapped to Z and Za axes
+Buttons are mapped to corresponding joystick button
+
+P1 and P2 start are mapped to keyboard '1' and '2'
+
+P1 start acts as shift button, when pressed simultaneously these keys are pressed instead of the default buttons:
+
+Button 1: coin (presses keyboard 5)
+J1 right: Tab
+J1 down: P (pause)
+J1 left: enter
+P2: esc
+
+Ask for other shift modes, if you need them, I'll see what i can do.
 
 ##Known Limitations
-Initialization sometimes fails and the device needs to be disconnected and reconnected to try again.
+Doesn't work with analog controls or lightguns, as I don't have any of those to test it with. If you're willing to help, just send me a message.
 
 ##TODO
-- better initialization
-- shift modes
-- analog controls
+- analog controls are being tested
 - multi nodes
 - gun controls
 
