@@ -11,10 +11,13 @@ void setup()
 	Uart.begin(115200, DE_PIN);
 	Joystick.useManualSend(true);
 	delay(START_DELAY);
-	j.reset();
-	int i = 1;
-	while (analogRead(SENSE_PIN) > 20){
-		j.init(i++);
+	Serial.println("Start");
+	while (!j.initialized){
+		j.reset();
+		int i = 1;
+		while (analogRead(SENSE_PIN) > 20){
+			j.init(i++);
+		}
 	}
     lastTime = millis();
 }
