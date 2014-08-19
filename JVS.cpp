@@ -57,7 +57,7 @@ void JVS::init(int board) {
 }
 
 void JVS::switches(int board) {
-	char str[] = { CMD_READ_SWITCHES, 0x02, 0x02, CMD_READ_COINS, 0x02 };
+	char str[] = { CMD_READ_DIGITAL, 0x02, 0x02, CMD_READ_COINS, 0x02, CMD_READ_ANALOG, 0x04};
 	//char str[ ] = { 0x20, 0x02, 0x02, 0x21, 0x02, 0x22, 0x08};
 	this->write_packet(board, str, sizeof str);
 	char incomingByte;
@@ -79,16 +79,20 @@ void JVS::switches(int board) {
 	int key = 0;
 	bool old_shift = shift_mode;
 
-//	Serial.print("swthc: E0 0 ");
-//	Serial.print(length, HEX);
+	if	(DEBUG_MODE) {
+		Serial.print("swthc: E0 0 ");
+		Serial.print(length, HEX);
+	}
 	while (counter < length) {
 		while (!_Uart.available()) {
 		}
 		incomingByte = _Uart.read();
-//		Serial.print(" ");
-//		Serial.print(incomingByte, HEX);
-
+		if (DEBUG_MODE){
+			Serial.print(" ");
+			Serial.print(incomingByte, HEX);
+		}
 		switch (counter) {
+		// fourth byte (first three bytes are sync and
 		case 3:
 			// p1 b1
 			shift_mode = bitRead(incomingByte, 7);
@@ -235,7 +239,8 @@ void JVS::switches(int board) {
 	//		char str1[ ] = {CMD_DECREASE_COIN};
 	//		this->cmd(board, str1, 1);
 	//	}
-//	Serial.println();
+	if (DEBUG_MODE)
+		Serial.println();
 }
 
 int* JVS::cmd(char destination, char data[], int size) {

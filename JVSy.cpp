@@ -18,6 +18,8 @@ void setup()
 		while (analogRead(SENSE_PIN) > 20){
 			j.init(i++);
 		}
+		// USE THIS TO REBOOT, IF NEEDED
+		// _restart_Teensyduino_();
 	}
     lastTime = millis();
 }

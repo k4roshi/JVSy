@@ -15,6 +15,11 @@
 #define SWCH_DELAY 			10
 #define DE_PIN				PIN_F6
 #define SENSE_PIN			PIN_B4
+#define DEBUG_MODE			false
+#if DEBUG_MODE
+	#define START_DELAY 		7000
+	#define SWCH_DELAY 			1000
+#endif
 // END CONFIG
 
 #define SYNC 				0xE0
@@ -35,9 +40,9 @@
 #define CMD_CAPABILITIES	 0x14
 #define CMD_CONVEY_ID		 0x15
 
-#define CMD_READ_SWITCHES 	0x20
+#define CMD_READ_DIGITAL 	0x20
 #define CMD_READ_COINS		0x21
-#define CMD_READ_ANALOGS	0x22
+#define CMD_READ_ANALOG		0x22
 #define CMD_READ_ROTARY		0x23
 #define CMD_READ_KEYPAD		0x24
 #define CMD_READ_LIGHTGUN	0x25
