@@ -38,11 +38,11 @@ P1 and P2 start are mapped to keyboard '1' and '2'
 
 P1 start acts as shift button, when pressed simultaneously these keys are pressed instead of the default buttons:
 
-Button 1: coin (presses keyboard 5)
-J1 right: Tab
-J1 down: P (pause)
-J1 left: enter
-P2: esc
+- P1 button 1: coin (presses keyboard 5)
+- J1 right: Tab
+- J1 down: P (pause)
+- J1 left: enter
+- P2: esc
 
 Ask for other shift modes, if you need them, I'll see what i can do.
 
