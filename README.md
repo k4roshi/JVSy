@@ -13,7 +13,7 @@ JVSy is an implementation of a JVS I/O host using a teensy 2.0 and an RS-485 to 
 
 
 ##Hardware
-The hardware requires an USB female port, an RS-485 interface and a Teensy 2.0. It has been tested only with an SN65176B and a teensy 2.0, but should also work with a MAX 485. Teensy 2.0++ and Teensy 3.x can be supported in the future.
+The hardware requires an USB female port, an RS-485 interface and a Teensy 2.0. It has been tested only with an SN75176B and a teensy 2.0, but should also work with a MAX 485. Teensy 2.0++ and Teensy 3.x can be supported in the future.
 
 ###Connections
 
